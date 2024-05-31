@@ -8,6 +8,8 @@ const tutorialOpenButton = document.querySelector('#tutorialButton');
 const tutorialScreen = document.querySelector('#tutorialExplanation');
 const tutorialCloseButton = document.querySelector("dialog button");
 const difficultyUI = document.querySelector("#currentDifficulty");
+const song = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/molesong.mp3?raw=true");
+const soundEffect = new Audio("https://github.com/gabrielsanchez/erddiagram/blob/main/hit.mp3?raw=true");
 
 let time = 0;
 let timer;
@@ -227,6 +229,7 @@ function startTimer() {
 *
 */
 function whack(event) {
+  playAudio(soundEffect);
   updateScore()
   return points;
 }
@@ -259,9 +262,23 @@ function setDuration(duration) {
 *
 */
 function stopGame(){
-  // stopAudio(song);  //optional
+  stopAudio(song);
+  startButton.disabled = false;
   clearInterval(timer);
   return "game stopped";
+}
+
+function playAudio(audioObject) {
+  audioObject.play();
+}
+
+function loopAudio(audioObject) {
+  audioObject.loop = true;
+  playAudio(audioObject);
+}
+
+function stopAudio(audioObject) {
+  audioObject.pause();
 }
 
 /**
@@ -271,6 +288,8 @@ function stopGame(){
 *
 */
 function startGame(){
+  startButton.disabled = true;
+  loopAudio(song);
   clearScore();
   setDuration(10);
   setEventListeners();
