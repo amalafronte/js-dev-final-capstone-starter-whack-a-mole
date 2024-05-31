@@ -30,6 +30,40 @@ h2 {
     font-size: 30px;
 }
 
+#tutorialButton {
+  text-align: center;
+  font-size: 25px;
+}
+
+dialog button {
+  font-size: 20px;
+}
+
+#tutorialExplanation {
+  position: relative;
+  padding: 1rem;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  font-size: 25px;
+}
+
+#difficultySection ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+#difficultyOptions {
+  display: flex;
+  justify-content: center;
+}
+
+#difficultyOptions li {
+  padding-left: 1.5em;
+}
+
+
 #timer{
     color: white;
 }

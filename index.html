@@ -45,7 +45,24 @@
       </div>
     </div>
 
+  <dialog id="tutorialExplanation">
+    <button autofocus>X</button>
+    <p>Click on the moles before they disappear to gain points!</p>
+    <p>Be careful not to click on bombs or you will lose points!</p>
+    <div id="difficultySection">
+      <p>Choose the difficulty of the game <br>
+      <span>Current difficulty: </span><span id="currentDifficulty"></span>
+      </p>
+      <ul id="difficultyOptions">
+        <li><button class="difficultyButton">Easy</button></li>
+        <li><button class="difficultyButton">Normal</button></li>
+        <li><button class="difficultyButton">Hard</button></li>
+      </ul>
+    </div>
+  </dialog>
+
   <button id="start">start</button>
+  <button id="tutorialButton">Instructions</button>
 
   <script src="./src/index.js"></script>
   </body>

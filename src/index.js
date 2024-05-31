@@ -1,14 +1,20 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
+const difficultyBtns = document.querySelectorAll('.difficultyButton');
 const startButton = document.querySelector('#start');
 const score = document.querySelector('#score'); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
+const tutorialOpenButton = document.querySelector('#tutorialButton');
+const tutorialScreen = document.querySelector('#tutorialExplanation');
+const tutorialCloseButton = document.querySelector("dialog button");
+const difficultyUI = document.querySelector("#currentDifficulty");
 
 let time = 0;
 let timer;
 let lastHole = 0;
 let points = 0;
 let difficulty = "hard";
+
 
 /**
  * Generates a random integer within a range.
@@ -142,6 +148,23 @@ function toggleVisibility(hole){
   return hole;
 }
 
+function openTutorial() {
+  tutorialScreen.showModal();
+}
+
+function closeTutorial() {
+  tutorialScreen.close();
+}
+
+function setDifficultyEventListeners() {
+  difficultyUI.innerHTML = difficulty.toUpperCase();
+  difficultyBtns.forEach((btn) => btn.addEventListener('click', () => {
+    difficulty = btn.innerHTML
+    difficultyUI.innerHTML = difficulty.toUpperCase();
+  }));
+
+}
+
 /**
 *
 * This function increments the points global variable and updates the scoreboard.
@@ -257,6 +280,9 @@ function startGame(){
   return "game started";
 }
 
+setDifficultyEventListeners();
+tutorialOpenButton.addEventListener("click", openTutorial);
+tutorialCloseButton.addEventListener("click", closeTutorial);
 startButton.addEventListener("click", startGame);
 
 
