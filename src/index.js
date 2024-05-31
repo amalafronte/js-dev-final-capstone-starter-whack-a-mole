@@ -228,7 +228,7 @@ function startTimer() {
 * the moles.
 *
 */
-function whack(event) {
+function whack() {
   updateScore()
   playAudio(soundEffect);
   return points;
