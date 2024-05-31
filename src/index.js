@@ -94,11 +94,9 @@ function chooseHole(holes) {
 */
 function gameOver() {
   if (time > 0) {
-    const timeOutId = showUp();
-    return timeOutId;
+    return showUp();
   } else {
-    const gameStopped = stopGame();
-    return gameStopped;
+    return stopGame();
   }
 }
 
@@ -127,11 +125,10 @@ function showUp() {
 */
 function showAndHide(hole, delay){
   toggleVisibility(hole);
-  const timeoutID = setTimeout(() => {
+  return setTimeout(() => {
     toggleVisibility(hole);
     gameOver();
   }, delay);
-  return timeoutID;
 }
 
 /**
