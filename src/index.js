@@ -1,6 +1,6 @@
 const holes = document.querySelectorAll('.hole');
 const moles = document.querySelectorAll('.mole');
-const difficultyBtns = document.querySelectorAll('.difficultyButton');
+const difficultyButtons = document.querySelectorAll('.difficultyButton');
 const startButton = document.querySelector('#start');
 const score = document.querySelector('#score'); // Use querySelector() to get the score element
 const timerDisplay = document.querySelector('#timer'); // use querySelector() to get the timer element.
@@ -160,8 +160,8 @@ function closeTutorial() {
 
 function setDifficultyEventListeners() {
   difficultyUI.innerHTML = difficulty.toUpperCase();
-  difficultyBtns.forEach((btn) => btn.addEventListener('click', () => {
-    difficulty = btn.innerHTML
+  difficultyButtons.forEach((button) => button.addEventListener('click', () => {
+    difficulty = button.innerHTML
     difficultyUI.innerHTML = difficulty.toUpperCase();
   }));
 
@@ -229,8 +229,8 @@ function startTimer() {
 *
 */
 function whack(event) {
-  playAudio(soundEffect);
   updateScore()
+  playAudio(soundEffect);
   return points;
 }
 
